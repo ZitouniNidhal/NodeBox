@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
 import { Marquee } from './components/Marquee';
 import { Features } from './components/Features';
 import { Architecture } from './components/Architecture';
@@ -28,7 +27,6 @@ export function App() {
       />
 
       <main>
-        <Hero onLaunchStudio={scrollToStudio} onOpenDocs={() => setIsDocsOpen(true)} />
         <Marquee />
         <Features />
         <Architecture />
