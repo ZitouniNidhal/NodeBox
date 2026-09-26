@@ -49,6 +49,8 @@
   background: #0b0b0b;
   color: #a8a29e;
   font-family: 'JetBrains Mono', monospace;
+  perspective: 900px;
+  transform-style: preserve-3d;
 }
 
 .diagram-grid {
@@ -57,6 +59,9 @@
   opacity: .72;
   background-image: radial-gradient(circle, rgba(255,255,255,.12) 1px, transparent 1px);
   background-size: 9px 9px;
+  transform: rotateX(58deg) scale(1.35) translateY(13%);
+  transform-origin: center bottom;
+  box-shadow: inset 0 -80px 100px rgba(0, 0, 0, .72);
 }
 
 .diagram-kicker, .diagram-index, .diagram-caption, .diagram-port {
@@ -84,9 +89,12 @@
   background: rgba(20, 18, 16, .94);
   color: #d6d3d1;
   font-size: 12px;
-  transform: rotate(45deg);
+  transform: rotateX(58deg) rotateZ(-45deg) translateZ(36px);
+  box-shadow: 8px 12px 0 rgba(67, 35, 20, .5), 16px 24px 28px rgba(0, 0, 0, .6);
+  transition: transform .45s ease, box-shadow .45s ease;
 }
-.diagram-node::first-line { transform: rotate(-45deg); }
+.technical-diagram:hover .diagram-node { transform: rotateX(58deg) rotateZ(-45deg) translateZ(52px); box-shadow: 12px 18px 0 rgba(67, 35, 20, .58), 20px 28px 32px rgba(0, 0, 0, .66); }
+.diagram-node span { transform: rotateZ(45deg) rotateX(-58deg); }
 .diagram-node-main { left: 22%; top: 39%; }
 .diagram-node-tool { right: 22%; top: 39%; }
 .diagram-node-center { left: calc(50% - 38px); top: calc(50% - 38px); }
@@ -94,12 +102,13 @@
 .diagram-line { position: absolute; z-index: 1; background: #7c2d12; }
 .diagram-line-horizontal { left: 35%; right: 35%; top: 51%; height: 1px; }
 .diagram-line-vertical { left: 50%; top: 53%; bottom: 28%; width: 1px; }
-.diagram-stack { position: absolute; right: 17%; bottom: 19%; display: grid; gap: 5px; color: #78716c; font-size: 9px; }
-.diagram-stack span { border: 1px solid #292524; padding: 5px 9px; background: #11100f; }
+.diagram-stack { position: absolute; right: 17%; bottom: 19%; display: grid; gap: 5px; color: #78716c; font-size: 9px; transform: rotateX(54deg) translateZ(14px); transform-style: preserve-3d; }
+.diagram-stack span { border: 1px solid #292524; padding: 5px 9px; background: #11100f; box-shadow: 5px 7px 0 #1c1917; }
 .diagram-caption-bottom { color: #78716c; }
 
-.diagram-shield { position: absolute; left: calc(50% - 67px); top: calc(50% - 77px); z-index: 2; width: 134px; height: 154px; border: 1px solid #7c2d12; clip-path: polygon(50% 0, 100% 20%, 86% 78%, 50% 100%, 14% 78%, 0 20%); display: grid; place-items: center; color: #c2410c; font-size: 9px; text-transform: uppercase; }
-.diagram-ring { position: absolute; left: calc(50% - 98px); top: calc(50% - 98px); width: 196px; height: 196px; border: 1px dashed #292524; border-radius: 50%; }
+.diagram-shield { position: absolute; left: calc(50% - 67px); top: calc(50% - 77px); z-index: 2; width: 134px; height: 154px; border: 1px solid #7c2d12; clip-path: polygon(50% 0, 100% 20%, 86% 78%, 50% 100%, 14% 78%, 0 20%); display: grid; place-items: center; color: #c2410c; font-size: 9px; text-transform: uppercase; transform: rotateX(52deg) translateZ(30px); box-shadow: 10px 16px 0 rgba(67, 35, 20, .5), 18px 24px 30px rgba(0,0,0,.65); }
+.diagram-shield span { transform: rotateX(-52deg); }
+.diagram-ring { position: absolute; left: calc(50% - 98px); top: calc(50% - 98px); width: 196px; height: 196px; border: 1px dashed #292524; border-radius: 50%; transform: rotateX(62deg) translateZ(8px); }
 .diagram-ring-two { left: calc(50% - 130px); top: calc(50% - 130px); width: 260px; height: 260px; border-color: #1c1917; }
 .diagram-port { color: #78716c; }
 .diagram-port-top { top: 22%; left: 46%; }
@@ -107,24 +116,26 @@
 .diagram-port-bottom { bottom: 17%; left: 44%; }
 .diagram-port-left { top: 49%; left: 14%; }
 
-.diagram-memory-layer { position: absolute; left: 22%; width: 56%; height: 50px; display: grid; place-items: center; border: 1px solid #57534e; background: rgba(20, 18, 16, .94); font-size: 11px; }
-.diagram-memory-top { top: 25%; border-color: #9a3412; color: #fb923c; transform: skewY(-8deg); }
-.diagram-memory-mid { top: 41%; color: #d6d3d1; transform: skewY(-8deg); }
-.diagram-memory-bottom { top: 57%; color: #78716c; transform: skewY(-8deg); }
+.diagram-memory-layer { position: absolute; left: 22%; width: 56%; height: 50px; display: grid; place-items: center; border: 1px solid #57534e; background: rgba(20, 18, 16, .94); font-size: 11px; transform: rotateX(57deg) skewY(-8deg) translateZ(20px); box-shadow: 8px 10px 0 #292524, 14px 18px 22px rgba(0,0,0,.58); transition: transform .45s ease; }
+.technical-diagram:hover .diagram-memory-layer { transform: rotateX(57deg) skewY(-8deg) translateZ(30px); }
+.diagram-memory-top { top: 25%; border-color: #9a3412; color: #fb923c; }
+.diagram-memory-mid { top: 41%; color: #d6d3d1; transform: rotateX(57deg) skewY(-8deg) translateZ(10px); }
+.diagram-memory-bottom { top: 57%; color: #78716c; transform: rotateX(57deg) skewY(-8deg) translateZ(0); }
 .diagram-connector { position: absolute; top: 50%; width: 12%; height: 1px; background: #7c2d12; }
 .diagram-connector-left { left: 10%; }
 .diagram-connector-right { right: 10%; }
 
 .diagram-bars { position: absolute; left: 14%; right: 14%; top: 30%; display: grid; gap: 12px; }
 .diagram-bars > div { display: grid; grid-template-columns: 72px 1fr; align-items: center; gap: 10px; color: #78716c; font-size: 9px; }
-.diagram-bars i { display: block; height: 8px; border: 1px solid #7c2d12; background: linear-gradient(90deg, #9a3412, #431407); }
+.diagram-bars i { display: block; height: 8px; border: 1px solid #7c2d12; background: linear-gradient(90deg, #9a3412, #431407); transform: skewX(-24deg) translateZ(16px); box-shadow: 5px 5px 0 #292524; }
 .diagram-bars > div:first-child { color: #fb923c; }
 .diagram-bars > div:first-child i { background: #c2410c; }
 .diagram-stat { position: absolute; right: 14%; bottom: 22%; color: #fb923c; font-size: 26px; }
 .diagram-stat span { margin-left: 4px; color: #78716c; font-size: 10px; text-transform: uppercase; }
 
 .technical-diagram-architecture { aspect-ratio: 2.35; }
-.architecture-layer { position: absolute; left: 29%; width: 42%; height: 62px; z-index: 2; display: grid; place-items: center; border: 1px solid #57534e; background: rgba(20, 18, 16, .96); color: #d6d3d1; font-size: 12px; transform: skewY(-6deg); }
+.architecture-layer { position: absolute; left: 29%; width: 42%; height: 62px; z-index: 2; display: grid; place-items: center; border: 1px solid #57534e; background: rgba(20, 18, 16, .96); color: #d6d3d1; font-size: 12px; transform: rotateX(55deg) skewY(-6deg) translateZ(24px); box-shadow: 9px 12px 0 #292524, 16px 22px 24px rgba(0,0,0,.6); transition: transform .45s ease; }
+.technical-diagram:hover .architecture-layer { transform: rotateX(55deg) skewY(-6deg) translateZ(38px); }
 .architecture-layer span { color: #78716c; font-size: 9px; text-transform: uppercase; }
 .architecture-layer-top { top: 22%; border-color: #9a3412; color: #fb923c; }
 .architecture-layer-mid { top: 39%; }

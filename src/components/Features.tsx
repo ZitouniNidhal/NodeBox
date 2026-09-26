@@ -7,9 +7,9 @@ const TechnicalDiagram: React.FC<{ variant: DiagramVariant; label: string }> = (
   const content = {
     mcp: (
       <>
-        <div className="diagram-node diagram-node-main">agent</div>
+        <div className="diagram-node diagram-node-main"><span>agent</span></div>
         <div className="diagram-line diagram-line-horizontal" />
-        <div className="diagram-node diagram-node-accent diagram-node-tool">MCP</div>
+        <div className="diagram-node diagram-node-accent diagram-node-tool"><span>MCP</span></div>
         <div className="diagram-line diagram-line-vertical" />
         <div className="diagram-stack">
           <span>filesystem</span>
@@ -25,7 +25,7 @@ const TechnicalDiagram: React.FC<{ variant: DiagramVariant; label: string }> = (
         <div className="diagram-shield"><span>zero trust</span></div>
         <div className="diagram-ring diagram-ring-one" />
         <div className="diagram-ring diagram-ring-two" />
-        <div className="diagram-node diagram-node-accent diagram-node-center">V8</div>
+        <div className="diagram-node diagram-node-accent diagram-node-center"><span>V8</span></div>
         <span className="diagram-port diagram-port-top">syscalls</span>
         <span className="diagram-port diagram-port-right">egress</span>
         <span className="diagram-port diagram-port-bottom">memory</span>
