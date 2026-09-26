@@ -359,7 +359,7 @@ export const Architecture: React.FC = () => {
         </div>
 
         {/* ─── 3D Visual Banner ─── */}
-        <div className="mb-12 rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative group max-w-5xl mx-auto">
+        <div className="mb-12 overflow-hidden border border-white/10 relative group max-w-5xl mx-auto">
           <ArchitectureDiagram />
           <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-80" />
           <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono text-orange-300">

@@ -78,7 +78,7 @@ export const Features: React.FC = () => {
 
         {/* ── Row 1: MCP Protocol ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-orange-500/10 group">
+          <div className="order-2 lg:order-1 overflow-hidden border border-white/10 group">
             <TechnicalDiagram variant="mcp" label="MCP agent connected to filesystem, runtime, and network tools" />
           </div>
           <div className="order-1 lg:order-2 space-y-5">
@@ -147,14 +147,14 @@ export const Features: React.FC = () => {
               ))}
             </div>
           </div>
-          <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-orange-500/5 group">
+          <div className="overflow-hidden border border-white/10 group">
             <TechnicalDiagram variant="security" label="Zero trust V8 isolate surrounded by syscall, egress, memory, and filesystem controls" />
           </div>
         </div>
 
         {/* ── Row 3: POSIX MemFS ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-orange-500/10 group">
+          <div className="order-2 lg:order-1 overflow-hidden border border-white/10 group">
             <TechnicalDiagram variant="memfs" label="Layered in-memory filesystem with snapshot and copy-on-write branching" />
           </div>
           <div className="order-1 lg:order-2 space-y-5">
@@ -220,7 +220,7 @@ export const Features: React.FC = () => {
             </div>
             <p className="text-xs text-slate-500 font-mono">* Cold Start Latency — Benchmarked on Apple M3 Max, Node.js v20</p>
           </div>
-          <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-orange-500/5 group">
+          <div className="overflow-hidden border border-white/10 group">
             <TechnicalDiagram variant="benchmark" label="Cold start benchmark comparing NodeBox with other sandbox runtimes" />
           </div>
         </div>
