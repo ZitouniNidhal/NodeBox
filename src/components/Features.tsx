@@ -1,6 +1,72 @@
 import React from 'react';
 import { Zap, ShieldCheck, HardDrive, Bot, ArrowUpRight } from 'lucide-react';
 
+type DiagramVariant = 'mcp' | 'security' | 'memfs' | 'benchmark';
+
+const TechnicalDiagram: React.FC<{ variant: DiagramVariant; label: string }> = ({ variant, label }) => {
+  const content = {
+    mcp: (
+      <>
+        <div className="diagram-node diagram-node-main">agent</div>
+        <div className="diagram-line diagram-line-horizontal" />
+        <div className="diagram-node diagram-node-accent diagram-node-tool">MCP</div>
+        <div className="diagram-line diagram-line-vertical" />
+        <div className="diagram-stack">
+          <span>filesystem</span>
+          <span>runtime</span>
+          <span>network</span>
+        </div>
+        <span className="diagram-caption diagram-caption-top">JSON-RPC / tools</span>
+        <span className="diagram-caption diagram-caption-bottom">stateful workspace</span>
+      </>
+    ),
+    security: (
+      <>
+        <div className="diagram-shield"><span>zero trust</span></div>
+        <div className="diagram-ring diagram-ring-one" />
+        <div className="diagram-ring diagram-ring-two" />
+        <div className="diagram-node diagram-node-accent diagram-node-center">V8</div>
+        <span className="diagram-port diagram-port-top">syscalls</span>
+        <span className="diagram-port diagram-port-right">egress</span>
+        <span className="diagram-port diagram-port-bottom">memory</span>
+        <span className="diagram-port diagram-port-left">fs</span>
+      </>
+    ),
+    memfs: (
+      <>
+        <div className="diagram-memory-layer diagram-memory-top">/workspace</div>
+        <div className="diagram-memory-layer diagram-memory-mid">snapshot · branch</div>
+        <div className="diagram-memory-layer diagram-memory-bottom">RAM / MemFS</div>
+        <div className="diagram-connector diagram-connector-left" />
+        <div className="diagram-connector diagram-connector-right" />
+        <span className="diagram-caption diagram-caption-top">copy-on-write</span>
+        <span className="diagram-caption diagram-caption-bottom">&lt; 0.1 ms</span>
+      </>
+    ),
+    benchmark: (
+      <>
+        <div className="diagram-bars">
+          <div><span>NodeBox</span><i style={{ width: '88%' }} /></div>
+          <div><span>ArcBox</span><i style={{ width: '48%' }} /></div>
+          <div><span>E2B</span><i style={{ width: '24%' }} /></div>
+          <div><span>Docker</span><i style={{ width: '10%' }} /></div>
+        </div>
+        <span className="diagram-caption diagram-caption-top">cold start / ms</span>
+        <span className="diagram-stat">12<span>ms</span></span>
+      </>
+    ),
+  }[variant];
+
+  return (
+    <div className={`technical-diagram technical-diagram-${variant}`} role="img" aria-label={label}>
+      <div className="diagram-grid" />
+      <div className="diagram-kicker">nodebox / systems</div>
+      {content}
+      <div className="diagram-index">0{variant === 'mcp' ? 1 : variant === 'security' ? 2 : variant === 'memfs' ? 3 : 4}</div>
+    </div>
+  );
+};
+
 export const Features: React.FC = () => {
   return (
     <section id="features" className="py-24 border-b border-white/[0.08] bg-[#0a0a0a] relative overflow-hidden">
@@ -13,11 +79,7 @@ export const Features: React.FC = () => {
         {/* ── Row 1: MCP Protocol ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-orange-500/10 group">
-            <img
-              src="/images/nodebox_3d_mcp_network.jpg"
-              alt="NodeBox MCP Protocol Network"
-              className="w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-            />
+            <TechnicalDiagram variant="mcp" label="MCP agent connected to filesystem, runtime, and network tools" />
           </div>
           <div className="order-1 lg:order-2 space-y-5">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-mono font-bold">
@@ -86,22 +148,14 @@ export const Features: React.FC = () => {
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-orange-500/5 group">
-            <img
-              src="/images/nodebox_3d_security.jpg"
-              alt="NodeBox Zero-Trust Security Shield"
-              className="w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-            />
+            <TechnicalDiagram variant="security" label="Zero trust V8 isolate surrounded by syscall, egress, memory, and filesystem controls" />
           </div>
         </div>
 
         {/* ── Row 3: POSIX MemFS ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-orange-500/10 group">
-            <img
-              src="/images/nodebox_3d_memfs.jpg"
-              alt="NodeBox POSIX Memory Filesystem"
-              className="w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-            />
+            <TechnicalDiagram variant="memfs" label="Layered in-memory filesystem with snapshot and copy-on-write branching" />
           </div>
           <div className="order-1 lg:order-2 space-y-5">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-mono font-bold">
@@ -167,11 +221,7 @@ export const Features: React.FC = () => {
             <p className="text-xs text-slate-500 font-mono">* Cold Start Latency — Benchmarked on Apple M3 Max, Node.js v20</p>
           </div>
           <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-orange-500/5 group">
-            <img
-              src="/images/nodebox_3d_benchmark.jpg"
-              alt="NodeBox Performance Benchmark Dashboard"
-              className="w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-            />
+            <TechnicalDiagram variant="benchmark" label="Cold start benchmark comparing NodeBox with other sandbox runtimes" />
           </div>
         </div>
 

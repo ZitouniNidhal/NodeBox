@@ -1,6 +1,19 @@
 import React, { useState } from 'react';
 import { CheckCircle2, XCircle, ChevronDown, ChevronUp, Layers, Cpu, Lock, Database, Network, Zap } from 'lucide-react';
 
+const ArchitectureDiagram: React.FC = () => (
+  <div className="technical-diagram technical-diagram-architecture" role="img" aria-label="NodeBox architecture: V8 isolate, MemFS snapshot, and seccomp-BPF guard">
+    <div className="diagram-grid" />
+    <div className="diagram-kicker">nodebox / execution stack</div>
+    <div className="architecture-layer architecture-layer-top">V8 isolate pool<span>hot snapshot</span></div>
+    <div className="architecture-layer architecture-layer-mid">POSIX MemFS<span>zero disk I/O</span></div>
+    <div className="architecture-layer architecture-layer-bottom">seccomp-BPF guard<span>12 syscalls</span></div>
+    <div className="architecture-rail architecture-rail-left"><span>agent tool</span><i /></div>
+    <div className="architecture-rail architecture-rail-right"><i /><span>network policy</span></div>
+    <div className="diagram-index">01</div>
+  </div>
+);
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Type definitions
 // ─────────────────────────────────────────────────────────────────────────────
@@ -347,12 +360,7 @@ export const Architecture: React.FC = () => {
 
         {/* ─── 3D Visual Banner ─── */}
         <div className="mb-12 rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative group max-w-5xl mx-auto">
-          <img
-            src="/images/nodebox_3d_architecture.jpg"
-            alt="NodeBox 3D Architecture Layer Diagram — V8 Isolate, MemFS, Seccomp-BPF"
-            className="w-full max-h-[380px] object-cover rounded-2xl transition-transform duration-700 group-hover:scale-[1.01]"
-            loading="lazy"
-          />
+          <ArchitectureDiagram />
           <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-80" />
           <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono text-orange-300">
             <span className="bg-[#0a0a0a]/90 px-3 py-1.5 rounded-lg border border-orange-500/30 text-[11px]">

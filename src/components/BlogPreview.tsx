@@ -17,7 +17,7 @@ const articles: Article[] = [
     date: 'Sep 2026',
     title: 'How We Achieved 12ms Cold Start With V8 Snapshot Serialization',
     excerpt:
-      'We replaced Docker container spin-up with pre-warmed V8 snapshot pools. Here's the deep dive into heap serialization, isolate forking, and the 50× improvement that followed.',
+      `We replaced Docker container spin-up with pre-warmed V8 snapshot pools. Here's the deep dive into heap serialization, isolate forking, and the 50× improvement that followed.`,
     readTime: '8 min read',
   },
   {
@@ -26,7 +26,7 @@ const articles: Article[] = [
     date: 'Aug 2026',
     title: 'Seccomp-BPF, MemFS, and the Anatomy of a Safe Node.js Sandbox',
     excerpt:
-      'Running untrusted AI-generated code requires more than `vm.runInContext`. We walk through every layer of the NodeBox security model and why each one matters.',
+      `Running untrusted AI-generated code requires more than \`vm.runInContext\`. We walk through every layer of the NodeBox security model and why each one matters.`,
     readTime: '12 min read',
   },
   {
@@ -35,7 +35,7 @@ const articles: Article[] = [
     date: 'Jul 2026',
     title: 'NodeBox Studio: Building a Real-Time Sandbox REPL for AI Agents',
     excerpt:
-      'NodeBox Studio is an interactive playground built on the same isolate engine. This post covers the WebSocket protocol, hot-reload sandboxes, and state snapshot/restore.',
+      `NodeBox Studio is an interactive playground built on the same isolate engine. This post covers the WebSocket protocol, hot-reload sandboxes, and state snapshot/restore.`,
     readTime: '6 min read',
   },
 ];
