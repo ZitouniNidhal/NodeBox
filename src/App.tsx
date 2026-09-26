@@ -4,6 +4,7 @@ import { Marquee } from './components/Marquee';
 import { Features } from './components/Features';
 import { Architecture } from './components/Architecture';
 import { SocialProof } from './components/SocialProof';
+import { Benchmarks } from './components/Benchmarks';
 import { InteractiveStudio } from './components/InteractiveStudio';
 import { Pricing } from './components/Pricing';
 import { ApiReference } from './components/ApiReference';
@@ -31,6 +32,7 @@ export function App() {
         <Features />
         <Architecture />
         <SocialProof />
+        <Benchmarks />
         <InteractiveStudio />
         <Pricing />
         <ApiReference />
