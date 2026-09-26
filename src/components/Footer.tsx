@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heart, ArrowUpRight } from 'lucide-react';
+import { Heart, ArrowUpRight } from 'lucide-react';
 
 interface FooterProps {
   onOpenDocs: () => void;
@@ -74,13 +74,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDocs, onScrollToStudio }) 
 
           {/* Brand (4 cols) */}
           <div className="lg:col-span-4 space-y-5">
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-orange-500 flex items-center justify-center shadow-lg shadow-orange-500/30">
-                <Box className="w-4.5 h-4.5 text-black" strokeWidth={2.5} />
+            <a href="https://nodebox.dev/" className="flex items-center gap-2.5" aria-label="NodeBox.dev">
+              <div className="w-9 h-9 rounded-xl overflow-hidden shadow-lg shadow-orange-500/30">
+                <img src="/nodebox-mark.svg" alt="NodeBox.dev" className="w-full h-full" />
               </div>
               <span className="text-xl font-black tracking-tight text-white">NodeBox</span>
               <span className="text-xs font-mono text-slate-600 mt-0.5">Labs</span>
-            </div>
+            </a>
 
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
               Open-source V8 isolate sandbox runtime for autonomous AI agents,

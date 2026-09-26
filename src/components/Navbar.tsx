@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Box, ChevronDown, Zap, Shield, Cpu, Terminal, BarChart3, Package } from 'lucide-react';
+import { ChevronDown, Zap, Shield, Cpu, Terminal, BarChart3, Package } from 'lucide-react';
 
 interface NavbarProps {
   onOpenDocs: () => void;
@@ -66,9 +66,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDocs, onScrollToStudio }) 
 
         {/* Brand + Nav */}
         <div className="flex items-center gap-8">
-          <a href="#hero" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-lg bg-orange-500 flex items-center justify-center shadow-lg shadow-orange-500/30 group-hover:shadow-orange-500/50 transition-shadow">
-              <Box className="w-4 h-4 text-black" strokeWidth={2.5} />
+          <a href="https://nodebox.dev/" className="flex items-center gap-2.5 group" aria-label="NodeBox.dev">
+            <div className="w-8 h-8 rounded-lg overflow-hidden shadow-lg shadow-orange-500/30 group-hover:shadow-orange-500/50 transition-shadow">
+              <img src="/nodebox-mark.svg" alt="NodeBox.dev" className="w-full h-full" />
             </div>
             <span className="text-lg font-black tracking-tight text-white">NodeBox</span>
           </a>
