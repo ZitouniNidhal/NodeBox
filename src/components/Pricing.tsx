@@ -83,7 +83,7 @@ export const Pricing: React.FC = () => {
               }`}
             >
               {tier.badge && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-orange-500 via-amber-400 to-green-400 text-black text-xs font-black rounded-full shadow-lg">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-orange-500 via-amber-400 to-slate-200 text-black text-xs font-black rounded-full shadow-lg">
                   {tier.badge}
                 </div>
               )}
@@ -100,7 +100,7 @@ export const Pricing: React.FC = () => {
               <ul className="space-y-2.5 mb-8 flex-1">
                 {tier.features.map((f, fi) => (
                   <li key={fi} className="flex items-start gap-2.5 text-sm text-slate-300">
-                    <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${tier.badge ? 'text-orange-400' : 'text-green-400'}`} />
+                    <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${tier.badge ? 'text-orange-400' : 'text-slate-400'}`} />
                     {f}
                   </li>
                 ))}
@@ -109,7 +109,7 @@ export const Pricing: React.FC = () => {
               <button
                 className={`w-full py-3 rounded-xl text-sm font-bold transition-all ${
                   tier.ctaVariant === 'primary'
-                    ? 'bg-gradient-to-r from-orange-500 via-amber-500 to-green-500 text-black hover:shadow-lg hover:shadow-orange-500/25 hover:scale-[1.02]'
+                    ? 'bg-gradient-to-r from-orange-500 via-amber-500 to-orange-400 text-black hover:shadow-lg hover:shadow-orange-500/25 hover:scale-[1.02]'
                     : 'bg-white/5 border border-white/15 text-slate-200 hover:bg-white/10 hover:border-orange-500/40'
                 } flex items-center justify-center gap-2`}
               >

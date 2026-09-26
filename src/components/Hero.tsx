@@ -12,7 +12,7 @@ export const Hero: React.FC<HeroProps> = ({ onLaunchStudio, onOpenDocs }) => {
 
       {/* Ambient glows */}
       <div className="absolute top-0 left-1/3 w-[600px] h-[400px] bg-orange-500/10 blur-[160px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-green-500/8 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-slate-500/8 blur-[140px] rounded-full pointer-events-none" />
 
       {/* Dot grid */}
       <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
@@ -49,7 +49,7 @@ export const Hero: React.FC<HeroProps> = ({ onLaunchStudio, onOpenDocs }) => {
 
               <button onClick={onLaunchStudio}
                 className="px-7 py-3.5 rounded-full bg-transparent hover:bg-white/5 text-white font-semibold text-sm border border-white/10 hover:border-white/20 transition-all flex items-center gap-2">
-                <Terminal className="w-4 h-4 text-green-400" />
+                <Terminal className="w-4 h-4 text-orange-400" />
                 Talk to sales
               </button>
             </div>
@@ -70,11 +70,11 @@ export const Hero: React.FC<HeroProps> = ({ onLaunchStudio, onOpenDocs }) => {
 
             {/* Floating orbits decoration */}
             <div className="absolute -top-8 -right-8 w-64 h-64 rounded-full border border-orange-500/10 pointer-events-none float-a" />
-            <div className="absolute -bottom-4 -left-4 w-40 h-40 rounded-full border border-green-500/10 pointer-events-none float-b" />
+            <div className="absolute -bottom-4 -left-4 w-40 h-40 rounded-full border border-slate-700/20 pointer-events-none float-b" />
 
             <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] shadow-2xl group cursor-pointer">
               {/* Orange corner glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-green-500/5 pointer-events-none z-10" />
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-slate-500/5 pointer-events-none z-10" />
 
               <img
                 src="/images/nodebox_3d_hero_cube.jpg"
@@ -84,11 +84,11 @@ export const Hero: React.FC<HeroProps> = ({ onLaunchStudio, onOpenDocs }) => {
 
               {/* Status bar overlay */}
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between px-4 py-2.5 bg-black/80 backdrop-blur-md rounded-xl border border-white/[0.08] z-20">
-                <div className="flex items-center gap-2 font-mono text-xs text-green-400">
-                  <span className="w-2 h-2 rounded-full bg-green-400 pulse-ring" />
+                <div className="flex items-center gap-2 font-mono text-xs text-orange-400">
+                  <span className="w-2 h-2 rounded-full bg-orange-400 pulse-ring" />
                   Isolate Kernel: ACTIVE
                 </div>
-                <span className="font-mono text-xs text-orange-400 font-bold">Boot: 12ms</span>
+                <span className="font-mono text-xs text-slate-300 font-bold">Boot: 12ms</span>
               </div>
             </div>
 
@@ -98,3 +98,4 @@ export const Hero: React.FC<HeroProps> = ({ onLaunchStudio, onOpenDocs }) => {
     </section>
   );
 };
+

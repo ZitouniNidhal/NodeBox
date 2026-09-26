@@ -6,7 +6,7 @@ export const Features: React.FC = () => {
     <section id="features" className="py-24 border-b border-white/[0.08] bg-[#0a0a0a] relative overflow-hidden">
       {/* Ambient glow */}
       <div className="absolute top-1/2 left-1/4 w-[500px] h-[300px] bg-orange-500/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/2 right-1/4 w-[500px] h-[300px] bg-green-500/5 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 w-[500px] h-[300px] bg-slate-500/5 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10 space-y-24">
 
@@ -26,7 +26,7 @@ export const Features: React.FC = () => {
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-100 leading-tight">
               Native MCP for{' '}
-              <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-green-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-slate-200 bg-clip-text text-transparent">
                 Claude, Gemini & ChatGPT
               </span>
             </h2>
@@ -57,13 +57,13 @@ export const Features: React.FC = () => {
         {/* ── Row 2: Zero-Trust Security ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-mono font-bold">
-              <ShieldCheck className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs font-mono font-bold">
+              <ShieldCheck className="w-3.5 h-3.5 text-orange-400" />
               Zero-Trust Security
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-100 leading-tight">
               Seccomp-BPF{' '}
-              <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">
                 Syscall Filtering
               </span>{' '}
               by Default
@@ -74,9 +74,9 @@ export const Features: React.FC = () => {
             <div className="grid grid-cols-2 gap-3 text-xs font-mono">
               {[
                 { label: 'Memory Cap', value: '16 – 512 MB', color: 'text-orange-400' },
-                { label: 'CPU Timeout', value: 'Configurable', color: 'text-green-400' },
+                { label: 'CPU Timeout', value: 'Configurable', color: 'text-slate-300' },
                 { label: 'Egress Control', value: 'Domain Whitelist', color: 'text-orange-400' },
-                { label: 'Syscall Guard', value: 'seccomp-bpf', color: 'text-green-400' },
+                { label: 'Syscall Guard', value: 'seccomp-bpf', color: 'text-slate-300' },
               ].map((item, i) => (
                 <div key={i} className="p-3 bg-white/[0.03] border border-white/10 rounded-xl">
                   <div className="text-slate-500 text-[10px] uppercase mb-1">{item.label}</div>
@@ -85,7 +85,7 @@ export const Features: React.FC = () => {
               ))}
             </div>
           </div>
-          <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-green-500/10 group">
+          <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-orange-500/5 group">
             <img
               src="/images/nodebox_3d_security.jpg"
               alt="NodeBox Zero-Trust Security Shield"
@@ -119,10 +119,10 @@ export const Features: React.FC = () => {
             </p>
             <div className="p-4 bg-[#050505] rounded-xl border border-white/10 font-mono text-xs space-y-1.5 text-slate-300">
               <div className="text-slate-500 mb-2 font-bold">// MemFS Snapshot Export</div>
-              <div><span className="text-orange-400">const</span> snapshot = <span className="text-green-400">box.fs.snapshot</span>();</div>
+              <div><span className="text-orange-400">const</span> snapshot = <span className="text-slate-200">box.fs.snapshot</span>();</div>
               <div className="text-slate-400">// {`{ '/workspace/output.json': '{"ok":true}', ... }`}</div>
-              <div><span className="text-orange-400">const</span> branch = <span className="text-green-400">box.fs.branch</span>(); <span className="text-slate-500">// copy-on-write</span></div>
-              <div className="text-green-400 mt-2 text-[11px]">// Latency: &lt; 0.1ms — no disk access</div>
+              <div><span className="text-orange-400">const</span> branch = <span className="text-slate-200">box.fs.branch</span>(); <span className="text-slate-500">// copy-on-write</span></div>
+              <div className="text-orange-400 mt-2 text-[11px]">// Latency: &lt; 0.1ms — no disk access</div>
             </div>
           </div>
         </div>
@@ -130,12 +130,12 @@ export const Features: React.FC = () => {
         {/* ── Row 4: Performance Benchmarks ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-mono font-bold">
-              <Zap className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs font-mono font-bold">
+              <Zap className="w-3.5 h-3.5 text-orange-400" />
               Performance
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-100 leading-tight">
-              <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-orange-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-slate-200 bg-clip-text text-transparent">
                 10× Faster
               </span>{' '}
               Than Traditional Containers
@@ -145,8 +145,8 @@ export const Features: React.FC = () => {
             </p>
             <div className="space-y-3">
               {[
-                { label: 'NodeBox Isolate', ms: 12, pct: 100, color: 'from-orange-500 to-green-500', textColor: 'text-orange-300' },
-                { label: 'ArcBox Labs', ms: 48, pct: 25, color: 'from-amber-600 to-orange-600', textColor: 'text-amber-400' },
+                { label: 'NodeBox Isolate', ms: 12, pct: 100, color: 'from-orange-500 to-amber-500', textColor: 'text-orange-300' },
+                { label: 'ArcBox Labs', ms: 48, pct: 25, color: 'from-slate-500 to-slate-600', textColor: 'text-slate-300' },
                 { label: 'E2B Sandboxes', ms: 210, pct: 6, color: 'from-slate-600 to-slate-700', textColor: 'text-slate-400' },
                 { label: 'Docker Container', ms: 850, pct: 1, color: 'from-slate-700 to-slate-800', textColor: 'text-slate-500' },
               ].map((item, i) => (
@@ -166,7 +166,7 @@ export const Features: React.FC = () => {
             </div>
             <p className="text-xs text-slate-500 font-mono">* Cold Start Latency — Benchmarked on Apple M3 Max, Node.js v20</p>
           </div>
-          <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-green-500/10 group">
+          <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-orange-500/5 group">
             <img
               src="/images/nodebox_3d_benchmark.jpg"
               alt="NodeBox Performance Benchmark Dashboard"
@@ -179,4 +179,5 @@ export const Features: React.FC = () => {
     </section>
   );
 };
+
 

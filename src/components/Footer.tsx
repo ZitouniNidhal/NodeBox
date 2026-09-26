@@ -50,14 +50,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDocs, onScrollToStudio }) 
             </div>
 
             <div>
-              <h4 className="font-bold text-slate-200 mb-3 uppercase tracking-wider text-[11px] text-green-400">
+              <h4 className="font-bold text-slate-200 mb-3 uppercase tracking-wider text-[11px] text-slate-400">
                 Documentation
               </h4>
               <ul className="space-y-2 text-slate-400">
-                <li><button onClick={onOpenDocs} className="hover:text-green-300 transition-colors">SDK Reference</button></li>
-                <li><button onClick={onOpenDocs} className="hover:text-green-300 transition-colors">MCP Tool Spec</button></li>
-                <li><button onClick={onOpenDocs} className="hover:text-green-300 transition-colors">Security Model</button></li>
-                <li><button onClick={onOpenDocs} className="hover:text-green-300 transition-colors">CLI Manual</button></li>
+                <li><button onClick={onOpenDocs} className="hover:text-slate-200 transition-colors">SDK Reference</button></li>
+                <li><button onClick={onOpenDocs} className="hover:text-slate-200 transition-colors">MCP Tool Spec</button></li>
+                <li><button onClick={onOpenDocs} className="hover:text-slate-200 transition-colors">Security Model</button></li>
+                <li><button onClick={onOpenDocs} className="hover:text-slate-200 transition-colors">CLI Manual</button></li>
               </ul>
             </div>
 

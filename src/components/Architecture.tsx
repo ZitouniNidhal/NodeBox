@@ -12,7 +12,7 @@ export const Architecture: React.FC = () => {
             System Architecture
           </h2>
           <p className="text-3xl sm:text-4xl font-extrabold text-slate-100">
-            Why NodeBox is <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-green-400 bg-clip-text text-transparent">10x Faster & Lighter</span>
+            Why NodeBox is <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-slate-200 bg-clip-text text-transparent">10x Faster & Lighter</span>
           </p>
           <p className="mt-4 text-slate-400 text-sm">
             Comparison between traditional container hypervisors (Docker / QEMU / ArcBox) vs NodeBox V8 Isolate snapshot pools.
@@ -31,7 +31,7 @@ export const Architecture: React.FC = () => {
             <span className="bg-[#0a0a0a]/90 px-3 py-1.5 rounded-lg border border-orange-500/30">
               Layer 1: V8 Isolate Execution Pool &bull; Layer 2: MemFS Snapshot &bull; Layer 3: Seccomp-BPF Guard
             </span>
-            <span className="text-green-400 font-bold bg-[#0a0a0a]/90 px-3 py-1.5 rounded-lg border border-green-500/30 hidden sm:block">
+            <span className="text-slate-300 font-bold bg-[#0a0a0a]/90 px-3 py-1.5 rounded-lg border border-white/10 hidden sm:block">
               Zero-Disk I/O Overhead
             </span>
           </div>
@@ -90,7 +90,7 @@ export const Architecture: React.FC = () => {
                   <p className="text-xs text-orange-300">Local-first Isolate Snapshot Pool</p>
                 </div>
               </div>
-              <span className="text-xs font-mono font-bold text-green-400 bg-green-500/10 px-2.5 py-1 rounded border border-green-500/30">
+              <span className="text-xs font-mono font-bold text-slate-200 bg-white/10 px-2.5 py-1 rounded border border-white/15">
                 &lt; 14ms boot
               </span>
             </div>
@@ -103,11 +103,11 @@ export const Architecture: React.FC = () => {
               </div>
               <div className="p-3 bg-white/[0.03] border border-white/10 rounded-lg text-slate-300 flex justify-between">
                 <span>POSIX Virtual Memory FS (MemFS)</span>
-                <span className="text-green-400">Zero-Disk (&lt; 1ms)</span>
+                <span className="text-slate-300">Zero-Disk (&lt; 1ms)</span>
               </div>
               <div className="p-3 bg-white/[0.02] border border-white/10 rounded-lg text-slate-400 flex justify-between">
                 <span>Seccomp-BPF Guard & Network Policy</span>
-                <span className="text-green-400">Zero-Trust Shield</span>
+                <span className="text-slate-300">Zero-Trust Shield</span>
               </div>
               <div className="p-3 bg-white/[0.01] border border-white/10 rounded-lg text-slate-500 flex justify-between">
                 <span>NodeBox Host Engine & V8 Worker Pool</span>
@@ -122,4 +122,5 @@ export const Architecture: React.FC = () => {
     </section>
   );
 };
+
 
