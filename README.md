@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="public/nodebox-mark.svg" alt="NodeBox logo" width="96" height="96" />
+
 # 📦 NodeBox
 
 ### Ephemeral Node.js MicroVM Sandboxes for Autonomous AI Agents & Tool Execution
@@ -12,6 +14,8 @@
 
 **NodeBox** is an open-source, ultra-fast V8 isolate execution runtime engineered specifically for AI agents, dynamic tool invocation, and local-first containerized code nodes.
 
+<a href="https://nodebox.dev/"><strong>Visit NodeBox.dev →</strong></a>
+
 <p align="center">
   <a href="#-key-features">Key Features</a> •
   <a href="#-performance-benchmarks">Benchmarks</a> •
@@ -21,6 +25,16 @@
   <a href="#-contributing">Contributing</a>
 </p>
 
+</div>
+
+---
+
+## 🖼️ Visual Architecture
+
+<div align="center">
+  <img src="public/images/nodebox-architecture.svg" alt="NodeBox architecture overview" width="900" />
+  <br />
+  <sub>V8 isolate execution, in-memory filesystem, and zero-trust security layers.</sub>
 </div>
 
 ---
