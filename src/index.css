@@ -43,7 +43,7 @@
 
 /* ── Orange glow helpers ── */
 .glow-orange { text-shadow: 0 0 24px rgba(249,115,22,0.55); }
-.glow-green  { text-shadow: 0 0 24px rgba(34,197,94,0.55); }
+.glow-grey   { text-shadow: 0 0 24px rgba(156,163,175,0.4); }
 
 /* ── Marquee / ticker ── */
 @keyframes marquee {
@@ -91,7 +91,7 @@
   content: '';
   position: absolute;
   left: 0; right: 0; height: 3px;
-  background: linear-gradient(to bottom, transparent, rgba(34,197,94,0.35), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(249,115,22,0.35), transparent);
   animation: scanline 3.5s linear infinite;
 }
 
