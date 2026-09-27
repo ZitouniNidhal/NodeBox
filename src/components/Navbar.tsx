@@ -49,15 +49,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDocs, onScrollToStudio }) 
   const [productOpen, setProductOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Close dropdown on outside click
+  // Close dropdown on outside click or ESC key
   useEffect(() => {
-    const handler = (e: MouseEvent) => {
+    const handleClick = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setProductOpen(false);
       }
     };
-    document.addEventListener('mousedown', handler);
-    return () => document.removeEventListener('mousedown', handler);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setProductOpen(false);
+    };
+    document.addEventListener('mousedown', handleClick);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
   return (
@@ -79,6 +86,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDocs, onScrollToStudio }) 
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setProductOpen(v => !v)}
+                aria-expanded={productOpen}
+                aria-haspopup="true"
                 className={`flex items-center gap-1 transition-colors ${productOpen ? 'text-white' : 'hover:text-white'}`}
               >
                 Product
