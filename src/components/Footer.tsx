@@ -66,6 +66,16 @@ const columns: { heading: string; color: string; links: LinkItem[] }[] = [
 ];
 
 export const Footer: React.FC<FooterProps> = ({ onOpenDocs, onScrollToStudio }) => {
+  const [newsEmail, setNewsEmail] = React.useState('');
+  const [newsSubscribed, setNewsSubscribed] = React.useState(false);
+
+  const handleNewsSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (newsEmail.trim()) {
+      setNewsSubscribed(true);
+    }
+  };
+
   return (
     <footer className="border-t border-white/[0.06] bg-[#030303]">
       {/* Main content */}
@@ -92,7 +102,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDocs, onScrollToStudio }) 
                 MIT License
               </span>
               <span className="px-2.5 py-1 rounded-lg bg-orange-500/10 border border-orange-500/20 text-[11px] font-mono text-orange-400">
-                v1.4.0
+                v1.5.0
               </span>
               <a
                 href="https://github.com/nodebox-dev/nodebox"
@@ -102,6 +112,31 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDocs, onScrollToStudio }) 
               >
                 <GhIcon /> GitHub
               </a>
+            </div>
+
+            {/* Newsletter input */}
+            <div className="pt-2">
+              <p className="text-xs font-mono text-slate-400 mb-2">Subscribe to release notes:</p>
+              {newsSubscribed ? (
+                <p className="text-xs font-mono text-emerald-400">✓ Subscribed to updates!</p>
+              ) : (
+                <form onSubmit={handleNewsSubmit} className="flex gap-2 max-w-xs">
+                  <input
+                    type="email"
+                    required
+                    placeholder="you@domain.com"
+                    value={newsEmail}
+                    onChange={(e) => setNewsEmail(e.target.value)}
+                    className="px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/10 text-xs font-mono text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-orange-500/50 flex-1"
+                  />
+                  <button
+                    type="submit"
+                    className="px-3 py-1.5 rounded-lg bg-orange-500/20 hover:bg-orange-500/30 border border-orange-500/40 text-orange-300 font-mono text-xs font-semibold transition-colors"
+                  >
+                    Join
+                  </button>
+                </form>
+              )}
             </div>
 
             {/* Social links */}
