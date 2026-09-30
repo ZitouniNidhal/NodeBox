@@ -3,15 +3,19 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-[#0a0a0a] text-slate-100 font-sans antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
-  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: #0a0a0a; }
-  ::-webkit-scrollbar-thumb { background: #222; border-radius: 3px; }
-  ::-webkit-scrollbar-thumb:hover { background: #333; }
+  ::-webkit-scrollbar-thumb { background: #262626; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #ea580c; }
 }
 
 /* ── Glassmorphic cards ── */
