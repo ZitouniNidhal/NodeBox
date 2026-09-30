@@ -1,16 +1,21 @@
 <div align="center">
 
+<img src="public/nodebox-mark.svg" alt="NodeBox logo" width="96" height="96" />
+
 # 📦 NodeBox
 
 ### Ephemeral Node.js MicroVM Sandboxes for Autonomous AI Agents & Tool Execution
 
 [![npm version](https://img.shields.io/npm/v/@nodebox/sdk.svg?style=flat-square&color=00f2fe)](https://www.npmjs.com/package/@nodebox/sdk)
+[![Version: 1.5.0](https://img.shields.io/badge/version-1.5.0-orange.svg?style=flat-square)](https://github.com/nodebox-dev/nodebox)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/nodebox-dev/nodebox/ci.yml?branch=main&style=flat-square)](https://github.com/nodebox-dev/nodebox/actions)
 [![MCP Protocol](https://img.shields.io/badge/MCP-Supported-38bdf8?style=flat-square)](https://modelcontextprotocol.io)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 **NodeBox** is an open-source, ultra-fast V8 isolate execution runtime engineered specifically for AI agents, dynamic tool invocation, and local-first containerized code nodes.
+
+<a href="https://nodebox.dev/"><strong>Visit NodeBox.dev →</strong></a>
 
 <p align="center">
   <a href="#-key-features">Key Features</a> •
@@ -21,6 +26,16 @@
   <a href="#-contributing">Contributing</a>
 </p>
 
+</div>
+
+---
+
+## 🖼️ Visual Architecture
+
+<div align="center">
+  <img src="public/images/nodebox-architecture.svg" alt="NodeBox architecture overview" width="900" />
+  <br />
+  <sub>V8 isolate execution, in-memory filesystem, and zero-trust security layers.</sub>
 </div>
 
 ---

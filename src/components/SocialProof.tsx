@@ -3,9 +3,9 @@ import React from 'react';
 const integrations = [
   { name: 'Claude', color: 'text-orange-400', bg: 'bg-orange-500/10 border-orange-500/20' },
   { name: 'Gemini', color: 'text-amber-300', bg: 'bg-amber-500/10 border-amber-500/20' },
-  { name: 'OpenAI', color: 'text-green-400', bg: 'bg-green-500/10 border-green-500/20' },
-  { name: 'LangChain', color: 'text-green-300', bg: 'bg-green-500/10 border-green-500/20' },
-  { name: 'LlamaIndex', color: 'text-orange-300', bg: 'bg-orange-500/10 border-orange-500/20' },
+  { name: 'OpenAI', color: 'text-slate-300', bg: 'bg-white/5 border-white/10' },
+  { name: 'LangChain', color: 'text-orange-300', bg: 'bg-orange-500/10 border-orange-500/20' },
+  { name: 'LlamaIndex', color: 'text-slate-300', bg: 'bg-white/5 border-white/10' },
   { name: 'Cursor', color: 'text-slate-300', bg: 'bg-white/5 border-white/10' },
   { name: 'GitHub Actions', color: 'text-slate-300', bg: 'bg-white/5 border-white/10' },
   { name: 'Vercel', color: 'text-slate-100', bg: 'bg-white/10 border-white/20' },
@@ -24,7 +24,7 @@ const testimonials = [
     name: 'Dominik W.',
     title: 'Lead Infra Eng, AgentOps',
     avatar: 'DW',
-    color: 'bg-green-600',
+    color: 'bg-slate-700',
   },
   {
     quote: "The MCP integration is genius. I pointed Claude Desktop at my NodeBox instance and it instantly has file system access, code execution, and tool memory. Zero config.",
@@ -62,7 +62,7 @@ export const SocialProof: React.FC = () => {
           <div className="text-center mb-12">
             <h2 className="text-xs font-mono font-bold tracking-widest text-slate-500 uppercase mb-3">What builders are saying</h2>
             <p className="text-3xl sm:text-4xl font-extrabold text-slate-100">
-              Trusted by <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-green-400 bg-clip-text text-transparent">AI infrastructure engineers</span>
+              Trusted by <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-slate-200 bg-clip-text text-transparent">AI infrastructure engineers</span>
             </p>
           </div>
 
