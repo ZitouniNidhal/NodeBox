@@ -122,7 +122,7 @@ export const InteractiveStudio: React.FC = () => {
             <Sparkles className="w-3.5 h-3.5" /> Interactive Sandbox Studio
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-100">
-            NodeBox Agent <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-green-400 bg-clip-text text-transparent">Playground</span>
+            NodeBox Agent <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-slate-200 bg-clip-text text-transparent">Playground</span>
           </h2>
           <p className="mt-3 text-slate-400 text-sm">
             Experience sub-30ms isolate execution live in your browser. Select a preset or customize script and guardrails.
@@ -216,7 +216,7 @@ export const InteractiveStudio: React.FC = () => {
                 <button
                   onClick={handleRunSandbox}
                   disabled={isExecuting}
-                  className="px-5 py-2 rounded-lg bg-gradient-to-r from-orange-500 via-amber-500 to-green-500 text-black font-extrabold text-xs shadow-md shadow-orange-500/20 hover:shadow-orange-500/35 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 disabled:opacity-50"
+                  className="px-5 py-2 rounded-lg bg-gradient-to-r from-orange-500 via-amber-500 to-orange-400 text-black font-extrabold text-xs shadow-md shadow-orange-500/20 hover:shadow-orange-500/35 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 disabled:opacity-50"
                 >
                   {isExecuting ? (
                     <>
@@ -258,11 +258,11 @@ export const InteractiveStudio: React.FC = () => {
                     onClick={() => setActiveTab('files')}
                     className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors ${
                       activeTab === 'files'
-                        ? 'bg-white/10 text-green-400 font-bold border border-white/15'
+                        ? 'bg-white/10 text-orange-400 font-bold border border-white/15'
                         : 'text-slate-400 hover:text-slate-200'
                     }`}
                   >
-                    <Folder className="w-3.5 h-3.5 text-green-400" />
+                    <Folder className="w-3.5 h-3.5 text-orange-400" />
                     MemFS
                   </button>
 
@@ -282,7 +282,7 @@ export const InteractiveStudio: React.FC = () => {
                 {executionResult && (
                   <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
                     executionResult.status === 'completed'
-                      ? 'bg-green-500/10 text-green-400 border border-green-500/20'
+                      ? 'bg-orange-500/10 text-orange-400 border border-orange-500/20'
                       : 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
                   }`}>
                     {executionResult.status.toUpperCase()}
@@ -316,7 +316,7 @@ export const InteractiveStudio: React.FC = () => {
                             {line.startsWith('[nodebox') ? (
                               <span className="text-orange-400">{line}</span>
                             ) : line.startsWith('[agent') ? (
-                              <span className="text-green-400">{line}</span>
+                              <span className="text-slate-200 font-bold">{line}</span>
                             ) : line.startsWith('[security') ? (
                               <span className="text-amber-400">{line}</span>
                             ) : (
@@ -351,7 +351,7 @@ export const InteractiveStudio: React.FC = () => {
                           >
                             <div className="flex items-center justify-between text-orange-300 font-bold">
                               <span className="flex items-center gap-1.5">
-                                <FileCode className="w-3.5 h-3.5 text-green-400" />
+                                <FileCode className="w-3.5 h-3.5 text-slate-300" />
                                 {filePath}
                               </span>
                               <span className="text-[10px] text-slate-500 font-mono">
@@ -388,7 +388,7 @@ export const InteractiveStudio: React.FC = () => {
 
                         <div className="p-3 rounded-lg bg-white/[0.03] border border-white/10">
                           <div className="text-[10px] text-slate-500 uppercase">RAM Peak</div>
-                          <div className="text-lg font-bold text-green-400 font-mono">
+                          <div className="text-lg font-bold text-slate-200 font-mono">
                             {executionResult.stats.memoryPeakMb} MB
                           </div>
                         </div>
@@ -402,7 +402,7 @@ export const InteractiveStudio: React.FC = () => {
 
                         <div className="p-3 rounded-lg bg-white/[0.03] border border-white/10">
                           <div className="text-[10px] text-slate-500 uppercase">Syscalls</div>
-                          <div className="text-lg font-bold text-green-400 font-mono">
+                          <div className="text-lg font-bold text-slate-200 font-mono">
                             {executionResult.stats.syscallCount}
                           </div>
                         </div>

@@ -131,7 +131,7 @@ console.log(res.stdout);`}
             {activeSection === 'security' && (
               <div className="space-y-4">
                 <h4 className="text-lg font-bold text-slate-100 flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-green-400" /> Zero-Trust Security Architecture
+                  <Shield className="w-5 h-5 text-orange-400" /> Zero-Trust Security Architecture
                 </h4>
                 <p>
                   NodeBox enforces multi-layered isolation to prevent unauthorized host system access:
@@ -142,7 +142,7 @@ console.log(res.stdout);`}
                     <div className="text-xs text-slate-400">Blocks dangerous kernel calls (execve, ptrace, keyctl).</div>
                   </div>
                   <div className="p-3 bg-black border border-white/10 rounded-lg">
-                    <div className="font-bold text-green-400 text-xs mb-1">Egress Whitelisting</div>
+                    <div className="font-bold text-slate-200 text-xs mb-1">Egress Whitelisting</div>
                     <div className="text-xs text-slate-400">Strict network domain filtering to prevent SSRF data leaks.</div>
                   </div>
                 </div>
@@ -152,7 +152,7 @@ console.log(res.stdout);`}
             {activeSection === 'architecture' && (
               <div className="space-y-4">
                 <h4 className="text-lg font-bold text-slate-100 flex items-center gap-2">
-                  <Cpu className="w-5 h-5 text-green-400" /> V8 Isolate Specifications
+                  <Cpu className="w-5 h-5 text-orange-400" /> V8 Isolate Specifications
                 </h4>
                 <p>
                   NodeBox utilizes V8 Context snapshots and worker pool memory sharing.
@@ -164,7 +164,7 @@ console.log(res.stdout);`}
                   </div>
                   <div className="flex justify-between p-2 bg-black rounded border border-white/10">
                     <span className="text-slate-400">Base Heap Memory:</span>
-                    <span className="text-green-400 font-bold">6.2 MB</span>
+                    <span className="text-slate-200 font-bold">6.2 MB</span>
                   </div>
                   <div className="flex justify-between p-2 bg-black rounded border border-white/10">
                     <span className="text-slate-400">Concurrency Density:</span>

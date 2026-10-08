@@ -89,7 +89,7 @@ Content-Type: application/json
             Developer Interfaces
           </h2>
           <p className="text-3xl sm:text-4xl font-extrabold text-slate-100">
-            Simple, Elegant <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-green-400 bg-clip-text text-transparent">SDK & API</span>
+            Simple, Elegant <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-slate-200 bg-clip-text text-transparent">SDK & API</span>
           </p>
           <p className="mt-3 text-slate-400 text-sm">
             Integration ready for TypeScript, CLI workflows, Python AI frameworks (LangChain, LlamaIndex), and REST APIs.
@@ -140,7 +140,7 @@ Content-Type: application/json
               onClick={copySnippet}
               className="flex items-center gap-1.5 px-3 py-1 text-xs font-mono text-slate-400 hover:text-orange-300 bg-white/5 rounded border border-white/10 transition-colors"
             >
-              {copied ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
+              {copied ? <Check className="w-3.5 h-3.5 text-orange-400" /> : <Copy className="w-3.5 h-3.5" />}
               {copied ? 'Copied!' : 'Copy Code'}
             </button>
           </div>
