@@ -7,7 +7,6 @@ import { Features } from './components/Features';
 import { UsageTabs } from './components/UsageTabs';
 import { Architecture } from './components/Architecture';
 import { SocialProof } from './components/SocialProof';
-import { Benchmarks } from './components/Benchmarks';
 import { InteractiveStudio } from './components/InteractiveStudio';
 import { Pricing } from './components/Pricing';
 import { ApiReference } from './components/ApiReference';
@@ -66,19 +65,16 @@ export function App() {
             {/* 7 — Social proof / testimonials */}
             <SocialProof />
 
-            {/* 8 — Performance benchmarks */}
-            <Benchmarks />
-
-            {/* 9 — Interactive Studio playground */}
+            {/* 8 — Interactive Studio playground */}
             <InteractiveStudio />
 
-            {/* 10 — Pricing */}
+            {/* 9 — Pricing */}
             <Pricing />
 
-            {/* 11 — API Reference */}
+            {/* 10 — API Reference */}
             <ApiReference />
 
-            {/* 12 — Blog preview */}
+            {/* 11 — Blog preview */}
             <BlogPreview />
           </main>
         </>
