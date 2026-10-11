@@ -46,11 +46,11 @@ const faqItems = [
   },
 ];
 
-const quickLinks = [
-  { label: 'Documentation', href: '#faq', icon: FileText },
-  { label: 'Contact support', href: '#contact', icon: Mail },
-  { label: 'Privacy policy', href: '#privacy', icon: ShieldCheck },
-  { label: 'Terms of service', href: '#terms', icon: CheckCircle2 },
+const quickLinks: { label: string; href: PageType; icon: typeof FileText }[] = [
+  { label: 'Documentation', href: 'faq', icon: FileText },
+  { label: 'Contact support', href: 'contact', icon: Mail },
+  { label: 'Privacy policy', href: 'privacy', icon: ShieldCheck },
+  { label: 'Terms of service', href: 'terms', icon: CheckCircle2 },
 ];
 
 export function SupportPage({ page, onNavigate }: SupportPageProps) {
@@ -157,9 +157,9 @@ export function SupportPage({ page, onNavigate }: SupportPageProps) {
               <button
                 key={label}
                 type="button"
-                onClick={() => onNavigate(href.replace('#', '') as PageType | 'home')}
+                onClick={() => onNavigate(href)}
                 className={`flex w-full items-center justify-between rounded-xl border px-3 py-2 text-left text-sm transition-colors ${
-                  page === href.replace('#', '')
+                  page === href
                     ? 'border-orange-500/40 bg-orange-500/10 text-orange-200'
                     : 'border-white/5 bg-white/[0.02] text-slate-300 hover:border-white/10 hover:text-white'
                 }`}
