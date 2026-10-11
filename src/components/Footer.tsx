@@ -16,7 +16,7 @@ const GhIcon = () => (
 interface LinkItem {
   label: string;
   href?: string;
-  action?: string;
+  action?: 'docs' | 'studio' | 'contact' | 'privacy' | 'terms' | 'faq';
   external?: boolean;
 }
 
