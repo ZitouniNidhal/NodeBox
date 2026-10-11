@@ -12,7 +12,6 @@ import { InteractiveStudio } from './components/InteractiveStudio';
 import { Pricing } from './components/Pricing';
 import { ApiReference } from './components/ApiReference';
 import { BlogPreview } from './components/BlogPreview';
-import { CTA } from './components/CTA';
 import { DocsModal } from './components/DocsModal';
 import { Footer } from './components/Footer';
 import { SupportPage, type PageType } from './components/SupportPages';
@@ -81,9 +80,6 @@ export function App() {
 
             {/* 12 — Blog preview */}
             <BlogPreview />
-
-            {/* 13 — Final CTA */}
-            <CTA onLaunchStudio={scrollToStudio} onOpenDocs={() => setIsDocsOpen(true)} />
           </main>
         </>
       )}
