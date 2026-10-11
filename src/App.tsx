@@ -21,7 +21,15 @@ export function App() {
 
   const scrollToStudio = () => {
     const el = document.getElementById('studio');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.history.replaceState(null, '', '#studio');
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      return;
+    }
+
+    window.location.hash = 'studio';
   };
 
   const handleOpenSupport = (page: PageType | 'home' = 'faq') => {
