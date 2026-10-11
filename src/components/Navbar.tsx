@@ -46,7 +46,7 @@ const productLinks = [
   },
 ];
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenDocs, onScrollToStudio }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenDocs, onOpenSupport, onScrollToStudio }) => {
   const [productOpen, setProductOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
