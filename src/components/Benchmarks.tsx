@@ -1,102 +1,97 @@
 import React from 'react';
-import { BarChart3, Zap, HardDrive, Layers, ShieldAlert } from 'lucide-react';
+import { BarChart3 } from 'lucide-react';
 
 export const Benchmarks: React.FC = () => {
-  const metrics = [
+  const metricCards = [
     {
       title: 'Cold Start Latency (Lower is better)',
       unit: 'ms',
+      footer: 'NodeBox achieves superior efficiency & density',
       items: [
-        { name: 'NodeBox Isolate Engine', value: 12, color: 'bg-gradient-to-r from-cyan-400 to-teal-400', highlight: true },
-        { name: 'ArcBox Labs', value: 48, color: 'bg-indigo-500/70' },
-        { name: 'E2B Sandboxes', value: 210, color: 'bg-slate-700' },
-        { name: 'Docker Container', value: 850, color: 'bg-slate-800' }
-      ]
-    },
-    {
-      title: 'Memory Footprint Per Instance (Lower is better)',
-      unit: 'MB',
-      items: [
-        { name: 'NodeBox Isolate Engine', value: 6.2, color: 'bg-gradient-to-r from-cyan-400 to-teal-400', highlight: true },
-        { name: 'ArcBox Labs', value: 28, color: 'bg-indigo-500/70' },
-        { name: 'E2B Sandboxes', value: 128, color: 'bg-slate-700' },
-        { name: 'Docker Container', value: 256, color: 'bg-slate-800' }
-      ]
+        { name: 'NodeBox Isolate Engine', value: 12, color: 'from-cyan-400 to-sky-500', highlight: true },
+        { name: 'ArcBox Labs', value: 48, color: 'from-sky-500 to-indigo-500', highlight: false },
+        { name: 'E2B Sandboxes', value: 210, color: 'from-slate-600 to-slate-500', highlight: false },
+        { name: 'Docker Container', value: 850, color: 'from-slate-700 to-slate-600', highlight: false },
+      ],
     },
     {
       title: 'Max Concurrent Sandboxes per 8GB Server (Higher is better)',
       unit: 'instances',
+      footer: 'NodeBox achieves superior efficiency & density',
       items: [
-        { name: 'NodeBox Isolate Engine', value: 1200, color: 'bg-gradient-to-r from-cyan-400 to-teal-400', highlight: true },
-        { name: 'ArcBox Labs', value: 250, color: 'bg-indigo-500/70' },
-        { name: 'E2B Sandboxes', value: 60, color: 'bg-slate-700' },
-        { name: 'Docker Container', value: 30, color: 'bg-slate-800' }
-      ]
-    }
+        { name: 'NodeBox Isolate Engine', value: 1200, color: 'from-cyan-400 to-sky-500', highlight: true },
+        { name: 'ArcBox Labs', value: 250, color: 'from-sky-500 to-indigo-500', highlight: false },
+        { name: 'E2B Sandboxes', value: 60, color: 'from-slate-600 to-slate-500', highlight: false },
+        { name: 'Docker Container', value: 30, color: 'from-slate-700 to-slate-600', highlight: false },
+      ],
+    },
   ];
 
   return (
-    <section id="benchmarks" className="py-20 border-b border-slate-800/60">
-      <div className="max-w-7xl mx-auto px-4 lg:px-8">
-        
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-xs font-mono font-semibold tracking-wider text-emerald-400 uppercase mb-3">
+    <section id="benchmarks" className="border-b border-white/5 bg-[#04070b] py-20">
+      <div className="mx-auto max-w-6xl px-4 lg:px-8">
+        <div className="mx-auto mb-10 max-w-4xl text-center">
+          <p className="mb-4 text-[11px] font-mono uppercase tracking-[0.28em] text-[#4fe3d1]">
             Performance Benchmarks
-          </h2>
-          <p className="text-3xl sm:text-4xl font-extrabold text-slate-100">
-            Empirical Benchmark <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">Results</span>
           </p>
-          <p className="mt-4 text-slate-400 text-sm">
-            Tested on Apple M3 Max & AWS c6i.4xlarge nodes running NodeBox 1.4 vs ArcBox vs E2B vs Docker engine.
+          <h2 className="text-4xl font-black tracking-[-0.04em] text-white md:text-5xl lg:text-[4rem]">
+            Empirical Benchmark <span className="bg-gradient-to-r from-[#72f0d7] via-[#4bd9e5] to-[#6aa7ff] bg-clip-text text-transparent">Results</span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-3xl text-base text-slate-400 md:text-lg">
+            Tested on Apple M3 Max &amp; AWS c6i.4xlarge nodes running NodeBox 1.4 vs ArcBox vs E2B vs Docker engine.
           </p>
         </div>
 
-        {/* Charts Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {metrics.map((m, idx) => {
-            const maxValue = Math.max(...m.items.map(i => i.value));
-            return (
-              <div key={idx} className="glass-card rounded-2xl p-6 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-sm font-bold text-slate-200 mb-6 flex items-center justify-between">
-                    {m.title}
-                    <BarChart3 className="w-4 h-4 text-slate-500" />
-                  </h3>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {metricCards.map((metric, index) => {
+            const maxValue = Math.max(...metric.items.map((item) => Number(item.value)));
 
-                  <div className="space-y-4">
-                    {m.items.map((item, itemIdx) => {
-                      const percentage = (item.value / maxValue) * 100;
-                      return (
-                        <div key={itemIdx} className="space-y-1.5">
-                          <div className="flex justify-between text-xs font-mono">
-                            <span className={item.highlight ? 'text-cyan-300 font-bold' : 'text-slate-400'}>
-                              {item.name}
-                            </span>
-                            <span className={item.highlight ? 'text-cyan-300 font-bold' : 'text-slate-500'}>
-                              {item.value} {m.unit}
-                            </span>
-                          </div>
-                          <div className="w-full bg-slate-900 rounded-full h-2.5 p-0.5 overflow-hidden border border-slate-800">
-                            <div
-                              className={`h-full rounded-full transition-all duration-1000 ${item.color}`}
-                              style={{ width: `${Math.max(percentage, 8)}%` }}
-                            />
-                          </div>
-                        </div>
-                      );
-                    })}
+            return (
+              <div
+                key={metric.title}
+                className="rounded-[22px] border border-white/10 bg-[#0a0e13] p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] md:p-6"
+              >
+                <div className="mb-6 flex items-center justify-between gap-4">
+                  <h3 className="max-w-[88%] text-[1.15rem] font-extrabold leading-snug text-slate-100 md:text-[1.6rem]">
+                    {metric.title}
+                  </h3>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.02] text-slate-400">
+                    <BarChart3 className="h-4 w-4" />
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-800/80 text-[11px] text-slate-500 font-mono">
-                  {m.items[0].highlight && '✔ NodeBox achieves superior efficiency & density'}
+                <div className="space-y-5">
+                  {metric.items.map((item) => {
+                    const width = Math.max((Number(item.value) / maxValue) * 100, 10);
+
+                    return (
+                      <div key={item.name} className="space-y-2">
+                        <div className="flex items-center justify-between gap-4 text-[0.96rem] font-medium">
+                          <span className={item.highlight ? 'text-cyan-300' : 'text-slate-300'}>{item.name}</span>
+                          <span className={item.highlight ? 'text-cyan-300' : 'text-slate-400'}>
+                            {item.value} {metric.unit}
+                          </span>
+                        </div>
+
+                        <div className="h-2.5 w-full overflow-hidden rounded-full border border-white/10 bg-[#0d141d]">
+                          <div
+                            className={`h-full rounded-full bg-gradient-to-r ${item.color} ${item.highlight ? 'shadow-[0_0_12px_rgba(34,211,238,0.5)]' : ''}`}
+                            style={{ width: `${width}%` }}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="mt-6 flex items-center gap-2 border-t border-white/10 pt-4 text-[0.72rem] font-medium text-slate-400 md:text-[0.8rem]">
+                  <span className="inline-block h-2 w-2 rounded-full bg-[#4fe3d1]" />
+                  {metric.footer}
                 </div>
               </div>
             );
           })}
         </div>
-
       </div>
     </section>
   );
