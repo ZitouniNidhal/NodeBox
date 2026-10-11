@@ -15,65 +15,82 @@ import { BlogPreview } from './components/BlogPreview';
 import { CTA } from './components/CTA';
 import { DocsModal } from './components/DocsModal';
 import { Footer } from './components/Footer';
+import { SupportPage, type PageType } from './components/SupportPages';
 
 export function App() {
   const [isDocsOpen, setIsDocsOpen] = useState(false);
+  const [supportPage, setSupportPage] = useState<PageType | 'home'>('home');
 
   const scrollToStudio = () => {
     const el = document.getElementById('studio');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleOpenSupport = (page: PageType | 'home' = 'faq') => {
+    setSupportPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const showSupportPage = supportPage !== 'home';
+
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-slate-100 font-sans selection:bg-orange-500/30 selection:text-orange-200">
       <Navbar
         onOpenDocs={() => setIsDocsOpen(true)}
+        onOpenSupport={handleOpenSupport}
         onScrollToStudio={scrollToStudio}
       />
 
-      <main>
-        {/* 1 — Hero banner */}
-        <Hero onLaunchStudio={scrollToStudio} onOpenDocs={() => setIsDocsOpen(true)} />
+      {showSupportPage ? (
+        <SupportPage page={supportPage} onNavigate={handleOpenSupport} />
+      ) : (
+        <>
+          <main>
+            {/* 1 — Hero banner */}
+            <Hero onLaunchStudio={scrollToStudio} onOpenDocs={() => setIsDocsOpen(true)} />
 
-        {/* 2 — Key metrics strip */}
-        <MetricsBanner />
+            {/* 2 — Key metrics strip */}
+            <MetricsBanner />
 
-        {/* 3 — Technology marquee */}
-        <Marquee />
+            {/* 3 — Technology marquee */}
+            <Marquee />
 
-        {/* 4 — Feature cards */}
-        <Features />
+            {/* 4 — Feature cards */}
+            <Features />
 
-        {/* 5 — Sandbox / Studio / Runner tabs */}
-        <UsageTabs />
+            {/* 5 — Sandbox / Studio / Runner tabs */}
+            <UsageTabs />
 
-        {/* 6 — Architecture deep-dive */}
-        <Architecture />
+            {/* 6 — Architecture deep-dive */}
+            <Architecture />
 
-        {/* 7 — Social proof / testimonials */}
-        <SocialProof />
+            {/* 7 — Social proof / testimonials */}
+            <SocialProof />
 
-        {/* 8 — Performance benchmarks */}
-        <Benchmarks />
+            {/* 8 — Performance benchmarks */}
+            <Benchmarks />
 
-        {/* 9 — Interactive Studio playground */}
-        <InteractiveStudio />
+            {/* 9 — Interactive Studio playground */}
+            <InteractiveStudio />
 
-        {/* 10 — Pricing */}
-        <Pricing />
+            {/* 10 — Pricing */}
+            <Pricing />
 
-        {/* 11 — API Reference */}
-        <ApiReference />
+            {/* 11 — API Reference */}
+            <ApiReference />
 
-        {/* 12 — Blog preview */}
-        <BlogPreview />
+            {/* 12 — Blog preview */}
+            <BlogPreview />
 
-        {/* 13 — Final CTA */}
-        <CTA onLaunchStudio={scrollToStudio} onOpenDocs={() => setIsDocsOpen(true)} />
-      </main>
+            {/* 13 — Final CTA */}
+            <CTA onLaunchStudio={scrollToStudio} onOpenDocs={() => setIsDocsOpen(true)} />
+          </main>
+        </>
+      )}
 
       <Footer
         onOpenDocs={() => setIsDocsOpen(true)}
+        onOpenSupport={handleOpenSupport}
         onScrollToStudio={scrollToStudio}
       />
 

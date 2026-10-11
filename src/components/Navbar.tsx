@@ -3,6 +3,7 @@ import { ChevronDown, Zap, Shield, Cpu, Terminal, BarChart3, Package } from 'luc
 
 interface NavbarProps {
   onOpenDocs: () => void;
+  onOpenSupport: (page?: 'faq' | 'contact' | 'privacy' | 'terms' | 'home') => void;
   onScrollToStudio: () => void;
 }
 
