@@ -138,8 +138,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDocs, onScrollToStudio }) 
             </div>
 
             <a href="#pricing" className="hover:text-white transition-colors">Pricing</a>
-            <button onClick={onOpenDocs} className="hover:text-white transition-colors">Docs</button>
-            <button onClick={onOpenDocs} className="hover:text-white transition-colors">Blog</button>
+            <button onClick={() => onOpenSupport('faq')} className="hover:text-white transition-colors">FAQ</button>
+            <button onClick={() => onOpenSupport('contact')} className="hover:text-white transition-colors">Contact</button>
           </nav>
         </div>
 

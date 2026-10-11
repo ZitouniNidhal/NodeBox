@@ -3,6 +3,7 @@ import { Heart, ArrowUpRight } from 'lucide-react';
 
 interface FooterProps {
   onOpenDocs: () => void;
+  onOpenSupport: (page?: 'faq' | 'contact' | 'privacy' | 'terms' | 'home') => void;
   onScrollToStudio: () => void;
 }
 
@@ -50,7 +51,7 @@ const columns: { heading: string; color: string; links: LinkItem[] }[] = [
       { label: 'Blog', action: 'docs' },
       { label: 'Careers', action: 'docs' },
       { label: 'Security', action: 'docs' },
-      { label: 'Contact', action: 'docs' },
+      { label: 'Contact', action: 'contact' },
     ],
   },
   {
@@ -58,14 +59,14 @@ const columns: { heading: string; color: string; links: LinkItem[] }[] = [
     color: 'text-slate-500',
     links: [
       { label: 'MIT License', href: 'https://github.com/nodebox-dev/nodebox/blob/main/LICENSE', external: true },
-      { label: 'Privacy Policy', action: 'docs' },
-      { label: 'Terms of Service', action: 'docs' },
-      { label: 'Cookie Policy', action: 'docs' },
+      { label: 'Privacy Policy', action: 'privacy' },
+      { label: 'Terms of Service', action: 'terms' },
+      { label: 'Cookie Policy', action: 'faq' },
     ],
   },
 ];
 
-export const Footer: React.FC<FooterProps> = ({ onOpenDocs, onScrollToStudio }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenDocs, onOpenSupport, onScrollToStudio }) => {
   const [newsEmail, setNewsEmail] = React.useState('');
   const [newsSubscribed, setNewsSubscribed] = React.useState(false);
 
@@ -180,7 +181,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDocs, onScrollToStudio }) 
                         </a>
                       ) : (
                         <button
-                          onClick={link.action === 'studio' ? onScrollToStudio : onOpenDocs}
+                          onClick={() => {
+                            if (link.action === 'studio') {
+                              onScrollToStudio();
+                              return;
+                            }
+                            if (link.action === 'contact' || link.action === 'privacy' || link.action === 'terms' || link.action === 'faq') {
+                              onOpenSupport(link.action);
+                              return;
+                            }
+                            onOpenDocs();
+                          }}
                           className="text-xs text-slate-500 hover:text-slate-200 transition-colors text-left"
                         >
                           {link.label}
